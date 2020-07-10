@@ -7,8 +7,8 @@ def string2bin(string):
         bit = bin(ord(char)).replace('b', '');
         # Se agregan ceros a la izquierda para aquellos caracteres
         # cuya cadena binaria sea menor a ocho digitos
-        if(len(bit) != 8):
-            dif = 8 - len(bit);
+        dif = 8 - len(bit);
+        if dif != 0:
             for i in range(dif):
                 bit = '0' + bit;
         binary += bit;
