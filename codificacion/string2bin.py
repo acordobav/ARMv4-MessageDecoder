@@ -1,5 +1,15 @@
 def string2bin(string):
-    # Funcion que transforma un string a su representacion binaria
-    # bin retorna la representacion binaria de un numero
-    # ord retorna el codigo ascii de un string de un caracter
-    return ''.join(bin(ord(c)) for c in string).replace('b', '');
+    # Funcion que transforma un string a su representacion binaria en 8 bits
+    binary = '';
+    for char in string:
+        # bin retorna la representacion binaria de un numero
+        # ord retorna el codigo ascii de un string de un caracter
+        bit = bin(ord(char)).replace('b', '');
+        # Se agregan ceros a la izquierda para aquellos caracteres
+        # cuya cadena binaria sea menor a ocho digitos
+        if(len(bit) != 8):
+            dif = 8 - len(bit);
+            for i in range(dif):
+                bit = '0' + bit;
+        binary += bit;
+    return binary;
