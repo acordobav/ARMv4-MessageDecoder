@@ -12,3 +12,5 @@ codigo/output_files/
 codigo/simulation/
 
 *.rpt
+
+codigo/incremental_db/
