@@ -1,0 +1,14 @@
+
+codigo/db/
+
+codigo/ProyectoFinal.qpf
+
+codigo/ProyectoFinal.qsf
+
+*.bak
+
+codigo/output_files/
+
+codigo/simulation/
+
+*.rpt
