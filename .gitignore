@@ -14,3 +14,5 @@ codigo/simulation/
 *.rpt
 
 codigo/incremental_db/
+
+*.qws
