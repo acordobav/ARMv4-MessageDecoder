@@ -24,7 +24,8 @@ logic cout1, cout2;
 logic [3:0] RA1, RA2;
 
 //Conexiones memoria de instrucciones
-logic [12:0] PCPlus4, PC1, PC, PCPlus8;
+logic [12:0] PC = 0;
+logic [12:0] PCPlus4, PC1, PCPlus8;
 
 
 Mux2 #(13) PCSrcMux(PCSrc, PCPlus4, Result, PC1);
