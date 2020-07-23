@@ -16,3 +16,5 @@ codigo/simulation/
 codigo/incremental_db/
 
 *.qws
+
+codigo/greybox_tmp/
