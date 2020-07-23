@@ -1,25 +1,14 @@
-module Register #(N=4) (input  logic clk,rst,en,
-						   	input  logic [N-1:0] data_in,
-							   output logic [N-1:0] data_out);
-logic [N-1:0] data = 0;
-logic [N-1:0] out = 0;
+module Register #(N=2) (input  logic CLK, RST, EN,
+						   	input  logic [N-1:0] Data_In,
+							   output logic [N-1:0] Data_Out);
+								
+	logic [N-1:0] OUT = 0;
 
-assign neg_clk = ~clk;
-
-
-always_ff @(posedge clk, posedge rst, posedge neg_clk) begin
-	// Reset del registro
-	if(rst) begin
-		data = 0;
-		out = 0;
+	always_ff @(negedge CLK) begin
+		if      (RST) OUT <= 0;
+		else if (EN) OUT <= Data_In;
 	end
-	// Lectura del registro
-	else if(clk) out = data;
-	// Escritura en el registro
-	else if(neg_clk) begin
-		if(en) data = data_in;
-	end 
-end
-assign data_out = out;
+
+	assign Data_Out = OUT;
 
 endmodule 
