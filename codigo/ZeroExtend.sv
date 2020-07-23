@@ -1,4 +1,8 @@
-module ZeroExtend(input  [11:0] Imm,
-						output [31:0] ExtImm);
-assign ExtImm = {20'b00000000000000000000, Imm};
-endmodule 
+module ZeroExtend #(parameter InWidth=2, parameter OutWidth=4)
+						 (input  [InWidth-1:0]  in,
+						  output [OutWidth-1:0] ext);
+						  
+logic [OutWidth-InWidth-1:0] zeros = 0;						  
+assign ext = {zeros, in};
+
+endmodule  
