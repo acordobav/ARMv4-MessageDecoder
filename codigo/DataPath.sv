@@ -14,7 +14,7 @@ assign MemtoReg = Control[11];
 assign MemWrite = Control [10];
 assign ALUControl = Control[9:6];
 assign ALUSrc = Control[5];
-assign ImmScr = Control[4:3];
+assign ImmSrc = Control[4:3];
 assign RegWrite = Control[2];
 assign RegSrc = Control[1:0];
 
@@ -36,10 +36,11 @@ Rom InstructionMemory(PC, clk, Instr);
 Mux2 #(4) RegSrcMux0(RegSrc[0], Instr[19:16], 4'b1111, RA1);
 Mux2 #(4) RegSrcMux1(RegSrc[1], Instr[3:0], Instr[15:12], RA2);
 RegisterFile #(32) RegFile(clk, rst, RegWrite, RA1, RA2, Instr[15:12], Result, PCPlus8, RD1, RD2);
+Extend Ext(ImmSrc, Instr[23:0], ExtImm);
 Mux2 #(32) SrcBMux(ALUSrc, RD2, ExtImm, SrcB);
 ALU #(32) Alu(RD1, SrcB, ALUControl, ALUResult, ALUFlags);
 ram DataMemory(ALUResult, clk, RD2, MemWrite, ReadData);
-Mux2 MemtoRegMux(MemtoReg, ALUResult, ReadData, Result);
+Mux2 #(32) MemtoRegMux(MemtoReg, ALUResult, ReadData, Result);
 
 assign InstrControl = Instr[31:12];
 
