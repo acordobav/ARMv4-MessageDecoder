@@ -1,7 +1,8 @@
-module SignExtend #(parameter InWidth=2, parameter OutWidth=4)
+module SignExtend #(parameter InWidth=24, parameter OutWidth=32)
 						 (input  [InWidth-1:0]  in,
 						  output [OutWidth-1:0] ext);
-						  
-assign ext = {{OutWidth-InWidth{in[InWidth-1]}},in[InWidth-1:0]};
+logic [InWidth-1:0] w;
+assign w = in << 2'b10;						  
+assign ext = {{OutWidth-InWidth{w[InWidth-1]}},w[InWidth-1:0]};
 
 endmodule 
