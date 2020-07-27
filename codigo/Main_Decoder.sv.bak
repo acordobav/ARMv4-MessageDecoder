@@ -1,0 +1,22 @@
+module Main_Decoder(input  logic[1:0] Op,
+						  input  logic Funct5, Funct0,
+						  output logic Branch, RegW, MemW, MemtoReg,
+											ALUSrc, ALUOp,
+						  output logic [1:0] ImmSrc, RegSrc);
+						  
+	always_comb
+		begin
+		if		  (Op == 2'b00 & Funct5 == 1'b0)
+			begin
+			assign Branch = 1'b0;
+			assign MemtoReg = 1'b0;
+			assign MemW = 1'b0;
+			assign ALUSrc = 1'b0;
+			//ImmSrc = XX
+			assign RegW = 1'b1;
+			assign RegSrc = 2'b00;
+			assign ALUOp = 1'b1;
+			end
+		end
+				  
+endmodule	

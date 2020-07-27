@@ -1,0 +1,8 @@
+module cputb();
+
+logic clk, rst,
+logic [31:0] Instr, ReadData;
+logic [31:0] PC, WriteData, Addr; 
+logic MemWrite;
+
+endmodule 

@@ -1,0 +1,6 @@
+module Cond_Check(input logic [3:0] Cond,
+						input logic [3:0] Flags,
+						output logic CondEx);
+						
+						
+endmodule;
