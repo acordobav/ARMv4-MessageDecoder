@@ -10,19 +10,19 @@ module ALU_Decoder(input  logic ALUOp,
 
 	always_comb
 	if (ALUOp) begin
-		case(Funct)
-			6'b001000: OUT = 6'b000000;//ADD
-			6'b001001: OUT = 6'b000011;//ADDS
-			6'b000100: OUT = 6'b000100;//SUB
-			6'b000101: OUT = 6'b000111;//SUBS
-			6'b000000: OUT = 6'b001000;//AND
-			6'b000001: OUT = 6'b001010;//ANDS
-			6'b011000: OUT = 6'b001100;//ORR
-			6'b011001: OUT = 6'b001110;//ORRS
-			6'b000010: OUT = 6'b010000;//XOR
-			6'b000011: OUT = 6'b010010;//XORS
-			6'b011110: OUT = 6'b010100;//NOT
-			6'b011111: OUT = 6'b010110;//NOTS
+		casex(Funct)
+			6'b?01000: OUT = 6'b000000;//ADD
+			6'b?01001: OUT = 6'b000011;//ADDS
+			6'b?00100: OUT = 6'b000100;//SUB
+			6'b?00101: OUT = 6'b000111;//SUBS
+			6'b?00000: OUT = 6'b001000;//AND
+			6'b?00001: OUT = 6'b001010;//ANDS
+			6'b?11000: OUT = 6'b001100;//ORR
+			6'b?11001: OUT = 6'b001110;//ORRS
+			6'b?00010: OUT = 6'b010000;//XOR
+			6'b?00011: OUT = 6'b010010;//XORS
+			6'b?11110: OUT = 6'b010100;//NOT
+			6'b?11111: OUT = 6'b010110;//NOTS
 			default:  OUT = 6'bxxxxxx;
 		endcase
 		if (Funct == 6'b011010) begin

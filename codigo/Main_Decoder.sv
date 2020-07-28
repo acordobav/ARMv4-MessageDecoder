@@ -10,12 +10,12 @@ module Main_Decoder(input  logic[1:0] Op,
 	logic [9:0] OUT;
 	
 	always_comb begin
-		casez(IN)
-			4'b000Z: OUT = 10'b0000ZZ1001;//DP Reg
-			4'b001Z: OUT = 10'b0001001Z01;//Dp Imm
-			4'b01Z0: OUT = 10'b0X11010100;//STR
-			4'b01Z1: OUT = 10'b0101011Z00;//LDR
-			4'b10ZZ: OUT = 10'b1001100Z10;//B
+		casex(IN)
+			4'b000?: OUT = 10'b0000XX1001;//DP Reg
+			4'b001?: OUT = 10'b0001001X01;//Dp Imm
+			4'b01?0: OUT = 10'b0X11010100;//STR
+			4'b01?1: OUT = 10'b0101011X00;//LDR
+			4'b10??: OUT = 10'b1001100X10;//B
 			default: OUT = 10'bX;
 		endcase
 	end

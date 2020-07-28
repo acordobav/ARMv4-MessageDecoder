@@ -5,7 +5,7 @@ logic [31:0] PC, Instr, ALUResult, WriteData, ReadData, Addr;
 logic MemWrite;
 
 Rom InstructionMemory(PC, clk, Instr);
-Ram DataMemory(ALUResult, clk, WriteData, MemWrite, ReadData);
+ram DataMemory(ALUResult, clk, WriteData, MemWrite, ReadData);
 CPU Processor(clk, rst, Instr, ReadData, PC, WriteData, Addr, MemWrite);
 
 endmodule 
