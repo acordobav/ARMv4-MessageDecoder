@@ -1,5 +1,5 @@
 from string2bin import string2bin
-from right_rotate import right_rotate
+from collections import deque
 
 def shift_encode(data, shift):
 
@@ -24,7 +24,9 @@ def shift_encode(data, shift):
 
     for data in data_list:
         data = list(data)
-        data = right_rotate(data, shift)
+        data = deque(data)
+        data.rotate(-shift)
+        data = list(data)
         data = ''.join([str(elem) for elem in data])
         encoded_data += (data + ' ')
 
