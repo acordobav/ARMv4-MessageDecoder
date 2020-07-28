@@ -18,3 +18,9 @@ codigo/incremental_db/
 *.qws
 
 codigo/greybox_tmp/
+
+codigo/Rom.qip
+
+codigo/Rom.v
+
+codigo/Rom_bb.v
