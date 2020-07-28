@@ -1,0 +1,5 @@
+module Ram(input  logic [9:0] Addr,
+			  input  logic CLK,
+			  input  logic [31:0] Data_In,
+			  input  logic EN,
+			  output logic [31:0] Data_Out);

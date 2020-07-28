@@ -6,11 +6,10 @@ logic [31:0] PC, Instr, WriteData, ReadData, Addr;
 logic MemWrite;
 
 Rom IM(PC, clk, Instr);
-Ram DM(Addr, clk, WriteData, MemWrite, ReadData);
+Ram DM(Addr, clk, rst, WriteData, MemWrite, ReadData);
 CPU Processor(clk, rst, Instr, ReadData, PC, WriteData, Addr, MemWrite);
 
 initial begin
-
 
 rst = 1;
 clk = 1;
