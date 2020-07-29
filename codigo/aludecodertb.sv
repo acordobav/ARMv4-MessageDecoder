@@ -9,14 +9,14 @@ ALU_Decoder DUT(ALUOp, Funct, sh, ALUControl, FlagW);
 
 initial begin
 ALUOp = 1'b0;
+sh = 2'b11;
 #10;
 ALUOp = 1'b1;
-Funct = 6'b001000;//Add
+Funct = 6'b011110;//NOT
 #10;
-Funct = 6'b000101;
+Funct = 6'b000010;//XOR
 #10;
-Funct = 6'b011010;
-sh = 2'b01;
+Funct = 6'b011011;//Rotate Right S
 #10;
 
 end
