@@ -4,7 +4,8 @@ module Control_Unit(input logic clk, rst,
 						  input logic [5:0] Funct,
 						  input logic [3:0] Cond, ALUFlags,
 						  output logic MemtoReg, ALUSrc,
-						  output logic [1:0] ImmSrc, RegSrc,
+						  output logic [1:0] ImmSrc, 
+						  output logic [2:0] RegSrc,
 						  output logic [3:0] ALUControl,
 						  output logic PCSrc, RegWrite, MemWrite);
 

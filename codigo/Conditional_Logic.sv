@@ -34,7 +34,7 @@ module Conditional_Logic(input logic clk, rst, PCS, RegW, MemW,
 		endcase
 	end
 	
-	assign FlagWrite = FlagW & CondEx;
+	assign FlagWrite = FlagW & {2{CondEx}};
 	
 	Register #(2) REGISTER1(clk, rst, FlagWrite[1], ALUFlags[3:2], Flags[3:2]);
 	Register #(2) REGISTER2(clk, rst, FlagWrite[0], ALUFlags[1:0], Flags[1:0]);

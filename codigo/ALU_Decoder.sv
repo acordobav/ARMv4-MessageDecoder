@@ -43,11 +43,11 @@ module ALU_Decoder(input  logic ALUOp,
 				6'b?11001: OUT = 6'b001110;//ORRS
 				6'b?00010: OUT = 6'b010000;//XOR
 				6'b?00011: OUT = 6'b010010;//XORS
-				6'b?11110: OUT = 6'b010100;//NOT
-				6'b?11111: OUT = 6'b010110;//NOTS
-				//6'b111010: OUT = 6'b00;//MOV
-				//6'b111011: OUT = 6'b10;//MOVS
-				6'b?10101: OUT = 6'b101110;//CMP
+				6'b?11110: OUT = 6'b011000;//NOT
+				6'b?11111: OUT = 6'b011010;//NOTS
+				6'b111010: OUT = 6'b000000;//MOV
+				6'b111011: OUT = 6'b000010;//MOVS
+				6'b?10101: OUT = 6'b000111;//CMP
 				default:  OUT = 6'bxxxxxx;
 			endcase
 	end else begin
