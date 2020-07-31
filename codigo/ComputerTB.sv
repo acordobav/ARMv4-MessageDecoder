@@ -2,12 +2,16 @@
 module ComputerTB();
 
 logic clk, rst;
-logic [31:0] PC, Instr, WriteData, ReadData, Addr;
-logic MemWrite;
+logic [31:0] PC, Instr, WriteRAM, RAMData, Addr, MuxData, Msj;
+logic MemWrite, RAMEnable, S;
 
-Rom IM(PC, clk, Instr);
-Ram DM(Addr, clk, rst, WriteData, MemWrite, ReadData);
-CPU Processor(clk, rst, Instr, ReadData, PC, WriteData, Addr, MemWrite);
+Rom IM(PC[5:0], clk, Instr);
+Ram DM(Addr[9:0], clk, rst, WriteRAM, RAMEnable, RAMData);
+CPU Processor(clk, rst, Instr, MuxData, PC, WriteRAM, Addr, MemWrite);
+Chipset Chip(MemWrite, Addr[10:0], RAMEnable, S);
+RomEM EMM(Addr[6:0], clk, Msj);
+Mux2 #(32) MuxChipset(S, Msj, RAMData, MuxData);
+
 
 initial begin
 
