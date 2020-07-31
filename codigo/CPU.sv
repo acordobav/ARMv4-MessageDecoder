@@ -6,7 +6,8 @@ module CPU(input  logic clk, rst,
 localparam N = 13; // Dimension del bus de datos de la memoria ROM, RAM
 logic PCSrc, MemtoReg, ALUSrc, RegWrite;
 logic [3:0] ALUControl, ALUFlags;
-logic [1:0] ImmSrc, RegSrc;
+logic [1:0] ImmSrc;
+logic [2:0] RegSrc;
 
 Control_Unit CU(clk, rst, Instr[15:12], Instr[27:26], Instr[6:5], Instr[25:20],
 					 Instr[31:28], ALUFlags, MemtoReg, ALUSrc, ImmSrc, RegSrc, ALUControl,
