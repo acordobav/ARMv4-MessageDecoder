@@ -32,8 +32,7 @@
 		;STR		R1, [R0, R2]
 		;ADD		R2, R2, #4
 		
-		;-----------	Mensaje XOR: Men saje
-		
+		;-----------	Mensaje NOT: Men saje
 		
 		;MOV		R1, #0x01		; 0
 		;STR		R1, [R0, R2]
@@ -148,6 +147,7 @@ DC_NOT	;		Algoritmo de decodificacion para el NOT
 		CMP		R1, R5		; if R1 == R5
 		BEQ		FIN			; break
 		MVN		R1, R1		; R1 = ~R1
+		AND		R1, R1, #0xFF  ; R1 = R1 AND 0xFF
 		STR		R1, [R4, R2]	; Guardar en R4+R2 el valor de R1
 		ADD		R2, R2, #4	; i = i + 1
 		B		DC_NOT
