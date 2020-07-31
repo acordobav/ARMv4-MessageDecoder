@@ -13,7 +13,7 @@ module Control_Unit(input logic clk, rst,
 	logic PCS, RegW, MemW;
 	
 	Decoder CONTROLDECODER(Rd, Op, sh, Funct, PCS, RegW, MemW, MemtoReg,
-								  ALUSrc, ImmSrc, RegSrc, FlagW, ALUControl);
+								  ALUSrc, ImmSrc, FlagW, RegSrc, ALUControl);
 								  
 	Conditional_Logic CLOGIC(clk, rst, PCS, RegW, MemW, FlagW, Cond,
 									 ALUFlags, PCSrc, RegWrite, MemWrite);
