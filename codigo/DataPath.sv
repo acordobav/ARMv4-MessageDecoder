@@ -1,4 +1,4 @@
-module DataPath #(parameter N=13) (input  logic clk, rst, PCSrc, MemtoReg, ALUSrc, RegWrite, 
+module DataPath #(parameter N=6) (input  logic clk, rst, PCSrc, MemtoReg, ALUSrc, RegWrite, 
 					                    input  logic [3:0]  ALUControl,
 											  input  logic [1:0]  ImmSrc, 
 											  input  logic [2:0]  RegSrc,
