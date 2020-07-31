@@ -13,8 +13,8 @@ def mif_gen(encoded_message, algorithm, filename, key=None):
     f = open(filename + '.mif', "w"); # Apertura del archivo .mif
 
     # Contenido inicial del archivo .mif
-    initial_data = "WIDTH=8;\n" \
-                   "DEPTH=256;\n" \
+    initial_data = "WIDTH=32;\n" \
+                   "DEPTH=128;\n" \
                    "\n" \
                    "ADDRESS_RADIX=HEX;\n" \
                    "DATA_RADIX=HEX;\n" \
@@ -49,7 +49,7 @@ def mif_gen(encoded_message, algorithm, filename, key=None):
 
     # Contenido final del archivo .mif
     final_data = "\t" + hex(num_element).replace('0x', '') + "   :   FF;\n" \
-                 "\t[" + hex(num_element+1).replace('0x', '') +"..0FF]  :   00;\n" \
+                 "\t[" + hex(num_element+1).replace('0x', '') +"..07F]  :   00;\n" \
                  "END;";
     f.write(final_data);
     f.close();
