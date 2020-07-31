@@ -33,7 +33,7 @@ def mif_gen(encoded_message, algorithm, filename, key=None):
         f.write("\t0   :   01;\n");
     else:
         f.write("\t0   :   03;\n");
-        data = hex(int(key, 10)).replace('0x', '');
+        data = hex(int(key, 2)).replace('0x', '');
         f.write("\t1   :   " + data + ";\n");
         num_element += 1;
 
