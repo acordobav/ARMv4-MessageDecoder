@@ -28,3 +28,9 @@ codigo/Rom_bb.v
 arm/VisUAL/
 
 codificacion/__pycache__/
+
+*.qip
+
+codigo/EM.v
+
+codigo/EM_bb.v
