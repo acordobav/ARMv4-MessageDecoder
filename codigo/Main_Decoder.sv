@@ -15,8 +15,10 @@ module Main_Decoder(input  logic[1:0] Op,
 	always_comb begin
 		casex(IN)
 			4'b000?: if (Cmd == 4'b1101) OUT = 11'b0000XX10101;//DP Reg Shifts
+						else if (Cmd == 4'b1010) OUT = 11'b0000XX00001; //DP Reg CMP
 						else OUT = 11'b0000XX10001;//DP Reg
 			4'b001?: if (Cmd == 4'b1101) OUT = 11'b0001001X101;//DP Imm Shifts
+						else if (Cmd == 4'b1010) OUT = 11'b0001000X001; //DP Imm CMP
 						else OUT = 11'b0001001X001;//Dp Imm
 			4'b01?0: OUT = 11'b0X110101000;//STR
 			4'b01?1: OUT = 11'b0101011X000;//LDR
