@@ -12,6 +12,11 @@ logic[N-1:0] r12_out, r13_out, r14_out, r15_out;
 logic[15:0] reg_en;
 Demux_1to16 DEMUX(WE3, A3, reg_en);
 
+// Data entrante para el registro R15
+logic S;
+logic [N-1:0] DataR15;
+Comparator #(4) COMP(A3, 4'b1111, S);
+Mux2 #(N) SEL_R15(S, R15, WD3, DataR15);
 
 // Registros									  
 Register #(N) REG00(clk,rst,reg_en[0], WD3,r00_out);
@@ -29,7 +34,7 @@ Register #(N) REG11(clk,rst,reg_en[11],WD3,r11_out);
 Register #(N) REG12(clk,rst,reg_en[12],WD3,r12_out);
 Register #(N) REG13(clk,rst,reg_en[13],WD3,r13_out);
 Register #(N) REG14(clk,rst,reg_en[14],WD3,r14_out);
-Register #(N) REG15(clk,rst,1'b1,R15,r15_out);
+Register #(N) REG15(clk,rst,1'b1,DataR15,r15_out);
 
 // Selector de la salida correspondiente
 Mux_16 #(N) MUX_OUT_RD1(A1, r00_out, r01_out, r02_out, r03_out, r04_out,

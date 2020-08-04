@@ -5,7 +5,7 @@ logic clk, rst;
 logic [31:0] PC, Instr, WriteData, Addr, ReadData;
 logic MemWrite;
 
-Rom IM(PC, clk, Instr);
+RomIM IM(PC, Instr);
 Ram DM(Addr, clk, rst, WriteData, MemWrite, ReadData);
 CPU Processor(clk, rst, Instr, ReadData, PC, WriteData, Addr, MemWrite);
 
