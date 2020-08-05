@@ -25,12 +25,12 @@ end
 always begin
 	#5 clk = !clk;
 
-	if(!clk && RAMData !== 32'b0) begin
-		$display ("%c",  RAMData);
-		fd = $fopen("./DM.txt", "a+");
-		$fdisplay (fd, "%c",  RAMData);
-		$fclose(fd);
-	end
+//	if(RAMData !== 32'b0 && RAMEnable === 1) begin
+//		$display ("%c",  RAMData);
+//		fd = $fopen("./DM.txt", "a+");
+//		$fdisplay (fd, "%c",  RAMData);
+//		$fclose(fd);
+//	end
 	
 end
 	

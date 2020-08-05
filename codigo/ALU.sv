@@ -11,7 +11,7 @@ module ALU #(parameter N = 32)
 
 	alu_logic_sv  #(N) alulogic (A, B, W2, W3, W4, W5, W6);
 
-	alu_shifts_sv  #(N) alushifts (A, B, W7, W8, W9, W10);
+	alu_shifts_sv  #(N) alushifts (B, A, W7, W8, W9, W10);
 
 	mux11_1_sv #(N) muxcontrol (W0, W1, W2, W3, W4, W5, W6, W7, W8, W9, W10, ALUControl, result);
 	

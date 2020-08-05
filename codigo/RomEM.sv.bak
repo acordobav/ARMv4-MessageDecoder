@@ -9,7 +9,7 @@ module RomEM(input logic [6:0] Addr,
 			ROM[i] = 0;
 		
 		end
-		$readmemh("./shift.dat",ROM);
+		$readmemh("./xor.dat",ROM);
 	end
 	
 	assign q = ROM[Addr];
