@@ -21,7 +21,7 @@ module Main_Decoder(input  logic[1:0] Op,
 						else if (Cmd == 4'b1010) OUT = 11'b0001000X001; //DP Imm CMP
 						else OUT = 11'b0001001X001;//Dp Imm
 			4'b0100: OUT = 11'b0X110101000;//STR Imm
-			4'b0110: OUT = 11'b0X10XX00000;//STR Reg
+			4'b0110: OUT = 11'b0X10XX01000;//STR Reg
 			4'b0101: OUT = 11'b0101011X000;//LDR Imm
 			4'b0111: OUT = 11'b0100XX10000;//LDR Reg
 			4'b10??: OUT = 11'b1001100X010;//B

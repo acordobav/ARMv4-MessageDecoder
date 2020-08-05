@@ -1,7 +1,6 @@
-`timescale 1 ns / 1 ns
 module ComputerTB();
 
-int fd;
+int fd; 
 
 logic clk, rst;
 logic [31:0] PC, Instr, WriteRAM, RAMData, Addr, MuxData, Msj;
@@ -26,12 +25,13 @@ end
 always begin
 	#5 clk = !clk;
 
-	if(!clk & RAMData != 32'b0) begin
-		$display("%h", RAMData);
-		fd = $fopen("./DM.txt", "a");
-		$fdisplay (fd, "%h",  RAMData);
+	if(!clk && RAMData !== 32'b0) begin
+		$display ("%c",  RAMData);
+		fd = $fopen("./DM.txt", "a+");
+		$fdisplay (fd, "%c",  RAMData);
 		$fclose(fd);
 	end
+	
 end
 	
 
